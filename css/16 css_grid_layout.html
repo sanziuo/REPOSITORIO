@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Loyout com flexbox</title>
+        <style>
+            /* Estilos para o posicionamento fixo */
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 colunas de largura igual */
+                grid-gap: 10px; /* Espaçamento entre os itens */
+            }
+
+            .item {
+                padding: 20px;
+                background-color: #f2f2f2;
+            }
+        </style>  
+    </head>
+    <body>
+        <div class="container">
+            <div class="item"> Item 1</div>
+            <div class="item"> Item 2</div>
+            <div class="item"> Item 3</div>
+            <div class="item"> Item 4</div>
+            <div class="item"> Item 5</div>
+        </div>
+    </body>
+</html>

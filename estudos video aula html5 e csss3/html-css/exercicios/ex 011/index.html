@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídias em HTML5</title>
+</head>
+<body>
+    <h1>Imagem Dinâmica</h1>
+    <p>Tente abrir esse site em vários dispositivos diferentes ou simplesmente aumente e diminua o tamanho do seu navegador</p>
+    <picture>
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="Imagem flexivel style=">
+    </picture>
+    <h1>Reproduzindo Áudio</h1>
+    <p>Vamos Aprender a Reproduzir audio em HTML5.</p>
+    <audio src="midia/Game of Thrones Soundtrack The Tower Extended.mp3" controls autoplay></audio>
+    <h2>Outra maneira.</h2>
+    <p>Outra maneira de executar</p>
+    <audio preload="metadata!" autoplay controls>
+        <source src="midia/Game of Thrones Soundtrack The Tower Extended.mp3" type="audio/mpeg">
+        <source src="midia/Game of Thrones Soundtrack The Tower Extended.ogg" type="audio/ogg">
+        <source src="midia/Game of Thrones Soundtrack The Tower Extended.wav" type="audio/wav">
+        <p>Infelizmente seu navegador não consegue reproduzir áudio. <a href="midia/Game of Thrones Soundtrack The Tower Extended.mp3">Clique aqui para baixar o Arquivo</a></p>
+    </audio>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Selecionando Elementos no DOM</title>
+        <!-- Referências a arquivos externos (Opcional) -->
+    </head>
+    <body>
+        <div class="conteudo">
+            <p>Este é um Parágrado dentro da div com a classe "conteudo"</p>
+        </div>
+
+        <script>
+            const elemento = document.querySelector('.conteudo p'); // Seleciona o primeiro parágrafo dentro da div com a classe "conteudo"
+            console.log(elemento.textContent); // Exibe o texto contido no elemento
+        </script>
+    </body>
+</html>

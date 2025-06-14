@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulário de Cadastro</title>
+        <!-- Referências a arquivos externos (Opcional) -->
+    </head>
+    <body>
+        <h2>Formulário de Cadastro</h2>
+        <form id="formulario" onsubmit="return validarFormulario()">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome"><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" ><br>
+
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade"><br>
+
+            <button type="submit">Enviar</button>
+        </form>   
+        
+        <script>
+            function validarFormulario() {
+                const nome = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+                const idade = document.getElementById('idade').value;
+
+                if (!nome || !email || !idade) {
+                    alert('Por favor, preencha todos os campos.');
+                    return false;
+                }
+                return true; // Permite o envio do formulário
+            }
+        </script>
+    </body>
+</html>

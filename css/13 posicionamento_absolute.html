@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemplo de Posicionamento absoluto</title>
+        <style>
+            /* Estilos para o posicionamento relativo */
+            .container{
+                position: relative;
+                width: 300px;
+                height: 200px;
+                border: 2px solid #333;
+            }
+            
+            .caixa{
+                width: 100px;
+                height: 100px;
+                background-color: #007bff;
+                position: absolute; /* Mudança para posicionamento absoluto */
+                top: 50px; /* Distância do topo do elemento pai */
+                left: 50px; /* Distância da esquerda do elemento pai */
+            }
+        </style>  
+    </head>
+    <body>
+        <div class="container">
+            <div class="caixa">
+                Este elemento está posicionado de absolute.
+            </div>
+         </div>   
+    </body>
+</html>

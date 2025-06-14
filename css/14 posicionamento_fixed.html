@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemplo de Posicionamento fixo</title>
+        <style>
+            /* Estilos para o posicionamento fixo */
+            .cabecalho{
+                position: fixed;
+                top: 0; 
+                left: 0;
+                width: 100%;
+                background-color: #021aed;
+                color: white;
+                padding: 10px;
+            }
+            
+            .conteudo{
+                /* Espaço para evitar que o conteúdo fique sob o cabeçalho fixo */
+                margin-top: 40px;
+                padding: 20px;
+            }
+        </style>  
+    </head>
+    <body>
+        <div class="cabecalho">
+            <h1>Cabeçalho fixo.</h1>
+            <p> Este é um exemplo de cabeçalho fixo usado CSS. O cabeçalho permanece no topo da página enquanto você rola o conteúdo.</p> 
+        </div>
+        <div class="conteudo">
+            <h1>Cabeçalho da Página.</h1>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. nullam eu semper erat. In Lacinia purus id ipsum lacina id eleifend est iaculis.</p> 
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. nullam eu semper erat. In Lacinia purus id ipsum lacina id eleifend est iaculis.</p>    
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. nullam eu semper erat. In Lacinia purus id ipsum lacina id eleifend est iaculis.</p> 
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. nullam eu semper erat. In Lacinia purus id ipsum lacina id eleifend est iaculis.</p> 
+         </div> 
+    </body>
+</html>

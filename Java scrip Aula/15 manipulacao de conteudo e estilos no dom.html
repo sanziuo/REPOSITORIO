@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemplo de manipulação de contúdo no DOM</title>
+    </head>
+    <body>
+        <div id="minhaDiv">Este é um elemento DIV</div>
+
+        <script>
+            // Exemplo de manipulação de conteúdo no DOM
+            const novaDiv = document.createElement('div'); // Cria um novo elemento DIV
+            novaDiv.textContent = 'Este é um novo elemento DIV criado dinamicamente.'; // Define o conteúdo do novo DIV
+
+            const minhaDiv = document.getElementById('minhaDiv'); // Seleciona o elemento DIV existente
+            minhaDiv.appendChild(novaDiv); // Adiciona o novo DIV como filho do DIV existente
+            
+        </script>
+    </body>
+</html>
