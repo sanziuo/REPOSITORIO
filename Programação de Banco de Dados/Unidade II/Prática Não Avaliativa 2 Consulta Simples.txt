@@ -1,0 +1,26 @@
+Exercícios SQL- Consulta Simples:
+Banco de dados Modelo Classico
+1. Listar os escritórios classificados por país e cidade.
+2. Liste os produtos cuja linha de produto que contêm a palavra 'Carro'.
+3. Listar os pagamentos acima de $ 100.000 (montante_pago).
+4. Listar qual é a diferença do preço de venda para o preço de compra dos produtos.
+5. Listar o nome e a cidade dos clientes que não possuem um representante de vendas
+(Funcionario_id)?
+6. Listar quais são os nomes dos funcionários que atuam como VP ou Gerente (manager).
+7. Listar quais pedidos com status cancelado.
+Banco de dados Sakila
+1. Lista o título do filme, descrição e o preço da locação, ordenados por descrição.
+2. Lista o título de e a duração dos filmes ordenados por duração do maior para a menor.
+3. Lista de filmes com duração menor do que 60 minutos.
+4. Lista dos clientes inativos (1 ativos, 0 inativo).
+5. Listar apenas o primeiro nome e último nome dos registros da tabela CLIENTE.
+6. Listar as cidades cujo nome iniciam com a letra C.
+7. Listar os atores cujo primeiro nome seja 'PENELOPE'
+8. Listar os atores cujo último nome seja 'KILMER'
+9. Listar os atores cujo último nome contenha as letras 'GEN'
+10. Listar os atores cujo último nome contenha as letras 'LI' e ordenar pelo primeiro nome.
+11. Listar os filmes cujo nome tenha a palavra 'DEVIL'.
+12. Listar o título dos filmes com duração do filme entre 60 e 80 minutos.
+13. Listar os dados dos filmes com preço de locação abaixo de 1 dólar, ordenar pelo título.
+14. Listar os filmes com custo de substituição acima de 20 dólares mas que tenha preço de
+locação abaixo de 3 dólares. Ordene pelo custo de substituição depois pelo preço de locação.
