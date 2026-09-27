@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 1 — Saudação</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    /* ITEM (d): CSS muda a cor de fundo, o tamanho da fonte e a cor do texto da página */
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #e8eef7;   /* cor de fundo da página alterada */
+      color: #14233b;              /* cor do texto da página alterada  */
+      font-size: 18px;             /* tamanho da fonte da página alterado */
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;         /* centraliza horizontalmente */
+      justify-content: center;
+      gap: 22px;
+      padding: 24px;
+    }
+
+    /* Caixa branca igual à da figura (com a barrinha de topo) */
+    .janela {
+      width: 320px;
+      background: #ffffff;
+      border: 1px solid #9bb0cf;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+    }
+    .barra {
+      height: 22px;
+      background: linear-gradient(#eef3fb, #d6e1f2);
+      border-bottom: 1px solid #c2d0e8;
+    }
+    .conteudo { padding: 28px 20px; text-align: center; }
+
+    #saudacao { font-size: 30px; font-weight: bold; margin: 0; }
+    /* "Seja bem-vindo!" começa escondido e aparece após os dois eventos */
+    #bemVindo { font-size: 30px; font-weight: bold; margin: 6px 0 0; display: none; }
+
+    .area-botoes { display: flex; gap: 10px; }
+
+    button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 5px 14px;
+      border: 1px solid #a0a0a0;
+      border-radius: 3px;
+      background: linear-gradient(#fbfbfb, #e6e6e6);
+      color: #222;
+      cursor: pointer;
+    }
+    button:hover { background: linear-gradient(#ffffff, #dcdcdc); }
+    button:active { background: #d5d5d5; }
+
+    /* O segundo botão só aparece após clicar no primeiro */
+    #btn2 { display: none; }
+  </style>
+</head>
+<body>
+  <div class="janela">
+    <div class="barra"></div>
+    <div class="conteudo">
+      <p id="saudacao">Olá, usuário!</p>
+      <p id="bemVindo">Seja bem-vindo!</p>
+    </div>
+  </div>
+
+  <div class="area-botoes">
+    <button id="btn1" onclick="cumprimentar()">Cumprimentar</button>
+    <button id="btn2" onclick="aplicacoesWeb()">Aplicações Web</button>
+  </div>
+
+  <script>
+    // Guarda se cada um dos dois eventos já aconteceu
+    let clicou1 = false;
+    let clicou2 = false;
+
+    // (a) Cumprimenta o usuário de acordo com o horário do computador
+    function cumprimentar() {
+      const hora = new Date().getHours();
+      let mensagem;
+
+      if (hora >= 5 && hora < 12) {
+        mensagem = "Bom dia!";
+      } else if (hora >= 12 && hora < 18) {
+        mensagem = "Boa tarde!";
+      } else {
+        mensagem = "Boa noite!";
+      }
+
+      alert(mensagem);
+
+      // (b) Faz aparecer o segundo botão
+      clicou1 = true;
+      document.getElementById("btn2").style.display = "inline-block";
+      verificarBoasVindas();
+    }
+
+    // (b) Alerta exibido pelo segundo botão
+    function aplicacoesWeb() {
+      alert("Desenvolvimento de Aplicações Web");
+      clicou2 = true;
+      verificarBoasVindas();
+    }
+
+    // (c) Depois dos dois eventos, mostra "Seja bem-vindo!" abaixo da 1ª mensagem
+    function verificarBoasVindas() {
+      if (clicou1 && clicou2) {
+        document.getElementById("bemVindo").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 16px;
+      color: #1a1a1a;
+      background: #ffffff;
+      margin: 0;
+      padding: 22px;
+    }
+    h2 { font-size: 20px; font-weight: bold; margin: 0 0 14px; }
+    .linha { margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
+    .rotulo { display: inline-block; min-width: 92px; padding-top: 3px; }
+    input[type=text], input[type=password], select, textarea {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+      padding: 3px 6px;
+      border: 1px solid #8a8a8a;
+      border-radius: 2px;
+      background: #fff;
+    }
+    input:focus, select:focus, textarea:focus { outline: 2px solid #f0a500; outline-offset: -1px; }
+    textarea { resize: both; }
+    .opcoes label { font-weight: normal; margin-right: 16px; }
+
+    fieldset { border: 1px solid #b0b0b0; margin: 12px 0; padding: 10px 12px; max-width: 360px; }
+    legend { font-weight: bold; padding: 0 6px; }
+
+    button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 4px 14px;
+      border: 1px solid #a0a0a0;
+      border-radius: 3px;
+      background: linear-gradient(#fbfbfb, #e6e6e6);
+      color: #222;
+      cursor: pointer;
+      margin-right: 6px;
+    }
+    button:hover { background: linear-gradient(#ffffff, #dcdcdc); }
+    button:active { background: #d5d5d5; }
+  </style>
+</head>
+<body>
+  <h2>Cadastro</h2>
+
+  <form id="formulario">
+    <!-- 1. Nome (Text) -->
+    <div class="linha">
+      <label class="rotulo" for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" size="34">
+    </div>
+
+    <!-- 2. Endereço (Text) -->
+    <div class="linha">
+      <label class="rotulo" for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" size="34">
+    </div>
+
+    <!-- 3. Sexo (Radio) -->
+    <div class="linha opcoes">
+      <span class="rotulo">Sexo:</span>
+      <span>
+        <label><input type="radio" name="sexo" value="Masculino"> Masculino</label>
+        <label><input type="radio" name="sexo" value="Feminino"> Feminino</label>
+      </span>
+    </div>
+
+    <!-- 4. Estado Civil (Lista) -->
+    <div class="linha">
+      <label class="rotulo" for="estadoCivil">Estado civil:</label>
+      <select id="estadoCivil" name="estadoCivil">
+        <option value="">Selecione...</option>
+        <option>Solteiro(a)</option>
+        <option>Casado(a)</option>
+        <option>Divorciado(a)</option>
+        <option>Viúvo(a)</option>
+        <option>União estável</option>
+      </select>
+    </div>
+
+    <!-- 5. Observações (Textarea) -->
+    <div class="linha">
+      <label class="rotulo" for="observacoes">Observações:</label>
+      <textarea id="observacoes" name="observacoes" rows="4" cols="40"></textarea>
+    </div>
+
+    <!-- Área restrita: 6. Usuário (Text) e 7. Senha (Password) -->
+    <fieldset>
+      <legend>Área restrita</legend>
+      <div class="linha">
+        <label class="rotulo" for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" size="22">
+      </div>
+      <div class="linha" style="margin-bottom: 0;">
+        <label class="rotulo" for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" size="22">
+      </div>
+    </fieldset>
+
+    <div class="linha">
+      <button type="submit">Enviar</button>
+      <button type="reset">Limpar</button>
+    </div>
+  </form>
+
+  <script>
+    // Apenas demonstra o envio sem recarregar a página
+    document.getElementById("formulario").addEventListener("submit", function (evento) {
+      evento.preventDefault();
+      alert("Formulário enviado com sucesso!");
+    });
+  </script>
+</body>
+</html>

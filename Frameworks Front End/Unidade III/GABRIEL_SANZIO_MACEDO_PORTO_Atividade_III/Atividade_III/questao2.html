@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dobro</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 16px;
+      color: #1a1a1a;
+      background: #ffffff;
+      margin: 0;
+      padding: 22px;
+    }
+    .linha { display: flex; align-items: center; gap: 10px; }
+    label { font-size: 16px; }
+    input[type=text] {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+      padding: 3px 6px;
+      border: 1px solid #8a8a8a;
+      border-radius: 2px;
+    }
+    input[type=text]:focus { outline: 2px solid #f0a500; outline-offset: -1px; }
+    button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 4px 12px;
+      border: 1px solid #a0a0a0;
+      border-radius: 3px;
+      background: linear-gradient(#f4f9ff, #cfe4fb);
+      color: #1a3b66;
+      cursor: pointer;
+    }
+    button:hover { background: linear-gradient(#ffffff, #bfd9f7); }
+    button:active { background: #b3d0f0; }
+  </style>
+</head>
+<body>
+  <div class="linha">
+    <label for="valor">Digite um valor:</label>
+    <input type="text" id="valor" size="10">
+    <button onclick="mostrarDobro()">Mostrar o dobro</button>
+  </div>
+
+  <script>
+    function mostrarDobro() {
+      const entrada = document.getElementById("valor").value;
+      const numero = parseFloat(entrada);
+
+      // Valida se o usuário digitou um número
+      if (entrada.trim() === "" || isNaN(numero)) {
+        alert("Por favor, digite um número válido.");
+        return;
+      }
+
+      // Exibe o dobro em uma mensagem de alerta
+      alert("O dobro de " + numero + " é " + (numero * 2) + ".");
+    }
+  </script>
+</body>
+</html>

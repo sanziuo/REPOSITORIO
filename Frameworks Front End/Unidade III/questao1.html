@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 1 — Saudação</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* (d) CSS: cor de fundo da página, tamanho da fonte e cor do texto */
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #ffffff;   /* fundo branco */
+      color: #000000;              /* texto preto */
+      font-size: 18px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;         /* centraliza horizontalmente */
+      justify-content: center;
+      gap: 18px;
+      padding: 24px;
+    }
+
+    /* Caixinha da figura: barra azul no topo, miolo branco */
+    .janela {
+      width: 340px;
+      border: 1px solid #7a9cc0;
+    }
+    .barra-azul {
+      height: 22px;
+      border-bottom: 3px solid #ffffff;  /* linha branca separando barra do miolo */
+      background-color: #7aaed6;   /* azul mais claro, igual ao PDF */   /* cabeçalho azul */
+    }
+    .miolo {
+      background-color: #ffffff;   /* miolo branco */
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    #saudacao  { font-size: 28px; font-weight: bold; }
+    /* "Seja bem-vindo!" fica escondido até os dois eventos acontecerem */
+    #bemVindo  { font-size: 28px; font-weight: bold; margin-top: 4px; display: none; }
+
+    .area-botoes { display: flex; gap: 10px; }
+
+    button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      padding: 5px 14px;
+      border: 1px solid #a0a0a0;
+      border-radius: 3px;
+      background: linear-gradient(#fbfbfb, #e0e0e0);
+      color: #222;
+      cursor: pointer;
+    }
+    button:hover  { background: linear-gradient(#ffffff, #d0d0d0); }
+    button:active { background: #c8c8c8; }
+
+    /* O segundo botão só aparece depois do primeiro clique */
+    #btn2 { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Caixinha com barra azul + "Olá, usuário!" centralizado -->
+  <div class="janela">
+    <div class="barra-azul"></div>
+    <div class="miolo">
+      <p id="saudacao">Olá, usuário!</p>
+      <p id="bemVindo">Seja bem-vindo!</p>
+    </div>
+  </div>
+
+  <!-- Botões centralizados horizontalmente -->
+  <div class="area-botoes">
+    <button id="btn1" onclick="cumprimentar()">Cumprimentar</button>
+    <button id="btn2" onclick="aplicacoesWeb()" hidden>Aplicações Web</button>
+  </div>
+
+  <script>
+    let clicou1 = false;
+    let clicou2 = false;
+
+    // (a) Alerta com Bom dia / Boa tarde / Boa noite conforme o horário
+    function cumprimentar() {
+      const hora = new Date().getHours();
+      let mensagem;
+      if      (hora >= 5  && hora < 12) mensagem = "Bom dia!";
+      else if (hora >= 12 && hora < 18) mensagem = "Boa tarde!";
+      else                               mensagem = "Boa noite!";
+      alert(mensagem);
+
+      // (b) Faz aparecer o segundo botão
+      clicou1 = true;
+      document.getElementById("btn2").style.display = "inline-block";
+      verificar();
+    }
+
+    // (b) Alerta do segundo botão
+    function aplicacoesWeb() {
+      alert("Desenvolvimento de Aplicações Web");
+      clicou2 = true;
+      verificar();
+    }
+
+    // (c) Após os dois eventos, exibe "Seja bem-vindo!" abaixo de "Olá, usuário!"
+    function verificar() {
+      if (clicou1 && clicou2) {
+        document.getElementById("bemVindo").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

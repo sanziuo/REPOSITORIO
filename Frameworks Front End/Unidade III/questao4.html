@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 16px;
+      color: #1a1a1a;
+      background: #ffffff;
+      margin: 0;
+      padding: 22px;
+    }
+    h2 { font-size: 20px; font-weight: bold; margin: 0 0 10px; }
+    .linha { margin-bottom: 6px; }
+    label { display: inline-block; min-width: 72px; }
+    input[type=text] {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+      padding: 3px 6px;
+      border: 1px solid #8a8a8a;
+      border-radius: 2px;
+    }
+    input[type=text]:focus { outline: 2px solid #f0a500; outline-offset: -1px; }
+    input[readonly] { background: #f3f3f3; }
+
+    .ops { display: flex; gap: 6px; margin: 8px 0; }
+    .ops button { width: 34px; text-align: center; padding: 4px 0; }
+
+    button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      padding: 4px 12px;
+      border: 1px solid #a0a0a0;
+      border-radius: 3px;
+      background: linear-gradient(#fbfbfb, #e6e6e6);
+      color: #222;
+      cursor: pointer;
+    }
+    button:hover { background: linear-gradient(#ffffff, #dcdcdc); }
+    button:active { background: #d5d5d5; }
+  </style>
+</head>
+<body>
+  <h2>Calculadora</h2>
+
+  <div class="linha">
+    <label for="v1">1º Valor:</label>
+    <input type="text" id="v1" size="14">
+  </div>
+  <div class="linha">
+    <label for="v2">2º Valor:</label>
+    <input type="text" id="v2" size="14">
+  </div>
+
+  <div class="ops">
+    <button onclick="calcular('+')">+</button>
+    <button onclick="calcular('-')">-</button>
+    <button onclick="calcular('*')">*</button>
+    <button onclick="calcular('/')">/</button>
+  </div>
+
+  <div class="linha">
+    <label for="resultado">Resultado:</label>
+    <input type="text" id="resultado" size="14" readonly>
+  </div>
+
+  <script>
+    function calcular(operacao) {
+      const a = parseFloat(document.getElementById("v1").value);
+      const b = parseFloat(document.getElementById("v2").value);
+      const resultado = document.getElementById("resultado");
+
+      // Valida se os dois campos têm números
+      if (isNaN(a) || isNaN(b)) {
+        alert("Digite valores numéricos válidos nos dois campos.");
+        resultado.value = "";
+        return;
+      }
+
+      let valor;
+      switch (operacao) {
+        case '+': valor = a + b; break;
+        case '-': valor = a - b; break;
+        case '*': valor = a * b; break;
+        case '/':
+          // Evita divisão por zero
+          if (b === 0) {
+            alert("Não é possível dividir por zero.");
+            resultado.value = "";
+            return;
+          }
+          valor = a / b;
+          break;
+      }
+
+      resultado.value = valor;
+    }
+  </script>
+</body>
+</html>
