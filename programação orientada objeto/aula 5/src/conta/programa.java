@@ -8,21 +8,13 @@ package conta;
  *
  * @author sanzi
  */
-public class TestaAlgunsMetodos {
+public class programa {
 
     public static void main(String[] args) {
-        // criando a conta
         Conta minhaConta;
         minhaConta = new Conta();
-
-        // alterando os valores de minhaConta
         minhaConta.titular = "Duke";
-        minhaConta.saldo = 1000;
-        // saca 200 reais
-        minhaConta.saca(200);
-        // deposita 500 reais
-        minhaConta.deposita(500);
-        System.out.println(minhaConta.saldo);
-        System.out.println("Saldo da conta: " + minhaConta.saldo);
+        minhaConta.saldo = 1000.0;
+        System.out.println("Saldo atual: " + minhaConta.saldo);
     }
 }
