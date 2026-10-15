@@ -10,7 +10,7 @@ package conta;
  */
 public class Conta {
 
-    int numero;
+    int numero; 
     String titular;
     double saldo;
     double salario;

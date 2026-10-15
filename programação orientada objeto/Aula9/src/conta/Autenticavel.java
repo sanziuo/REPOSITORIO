@@ -1,0 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package conta;
+
+/**
+ *
+ * @author gabrielsanzio
+ */
+public interface Autenticavel {
+
+    // Só a assinatura, sem corpo: quem implementa decide COMO autentica
+    boolean autentica(int senha);
+}
