@@ -1,0 +1,3 @@
+O Texto 8 (bootstrap vs react-dnd vs jquery-ui vs material-ui) não tem exemplos de código.
+Ele só traz o link da comparação de pacotes npm:
+https://npm-compare.com/pt-PT/bootstrap,jquery-ui,material-ui,react-dnd

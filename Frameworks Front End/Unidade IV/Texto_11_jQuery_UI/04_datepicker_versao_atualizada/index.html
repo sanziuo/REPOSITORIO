@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Calendário jQuery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script>
+        $(function() {
+        /*$( "#calendario" ).datepicker();
+        $("#calendario").datepicker({dateFormat: 'dd-mm-yy'});*/
+        $( "#calendario" ).datepicker({
+        showOn: "button",
+        buttonImage: "calendario.png",
+        buttonImageOnly: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Data: <input type="text" id="calendario" /></p>
+ </body>
+</html>

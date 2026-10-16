@@ -1,0 +1,4 @@
+O Texto 7 (Análise Comparativa do Interesse ao Longo do Tempo) não tem exemplos de código.
+Ele só traz gráficos do Google Trends comparando jQuery, ExtJS, Bootstrap, Semantic UI, Angular,
+Ember.js, React.js, Vue.js, Svelte.js, Backbone.js e Preact.js.
+Fonte: https://trends.google.com/trends/

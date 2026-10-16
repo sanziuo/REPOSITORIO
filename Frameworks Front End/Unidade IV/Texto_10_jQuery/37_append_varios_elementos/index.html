@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function appendText() {
+  var txt1 = "<p>Text.</p>";               // Criar texto com HTML
+  var txt2 = $("<p></p>").text("Text.");   // Criar texto com jQuery
+  var txt3 = document.createElement("p");
+  txt3.innerHTML = "Text.";                // Criar texto com DOM
+  $("body").append(txt1, txt2, txt3);      // Append new elements
+}
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+<button onclick="appendText()">Append text</button>
+
+</body>
+</html>
