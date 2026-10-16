@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML 5 - Elementos Semânticos - Interna </title>
+     <style>
+        body {
+        width:960px;
+        margin: 15px auto;
+        font-family: Arial, "MS Trebuchet", sans-serif;
+        }
+
+        header, section, footer {
+        border-style: dotted;
+        border-width: thin;
+        border-color: red;
+        }
+
+        header#pageHeader {
+        width: 100%;
+        }
+
+        section header {
+        border: none;
+        border-bottom-style:solid;
+        border-bottom-width: thin;
+        }
+
+        /* Transformando a lista de link em uma estrututa horizontal */
+        header#pageHeader nav ul, #pageFooter nav ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        }
+
+        p {
+        margin: 0 0 20px 15px;
+        }
+
+        p, li {
+        line-height: 20px;
+        }
+
+        #pageHeader nav ul li, #pageFooter nav ul li {
+        padding: 0;
+        margin: 0 20px 0 0;
+        display: inline;
+        }
+
+        /* Ajustando o sidebar */
+        section#sidebar {
+        float:left;
+        width:25%;
+        }
+
+        /* Ajustando os posts */
+        section#posts {
+        float:left;
+        width:74%;
+        }
+        /* Ajustando o Rodape  */
+        footer#pageFooter {
+            clear:both;
+            width:100%;
+        }
+     </style>
+  </head>
+
+  <body>
+    <!-- Corpo da Pagina -->
+    <header id="pageHeader">
+      <h2>Elementos Semânticos em HTML5 e CSS3</h2>
+      <h3>Com conteúdo interno</h3>
+      <p>Exemplo de uso dos elementos semânticos</p>
+      <nav id="menuPrincipal">
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Post mais recentes</a></li>
+          <li><a href="#">Arquivo</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!--Menu Lateral - Esquerda -->
+    <!--
+    <section id="menuLateral">
+    </section>
+    -->
+
+    <!--Menu Lateral - Direita-->
+    <section id="sidebar">
+      <nav>
+        <h3> Categorias </h3>
+        <ul>
+          <li><a href="categoria?cat=1">Categoria 1</a></li>
+          <li><a href="categoria?cat=1">Categoria 2</a></li>
+          <li><a href="categoria?cat=1">Categoria 3</a></li>
+          <li><a href="categoria?cat=1">Categoria 4</a></li>
+          <li><a href="categoria?cat=1">Categoria 5</a></li>
+          <li><a href="categoria?cat=1">Categoria 6</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Principais posts do site-->
+    <section id="posts">
+      <article id="1502" class="post">
+        <header>
+          <h3> Conteúdo Conteúdo</h3>
+          <p> Publicado por ACSG <time datetime="2019-08-26" > 26 de outubro de 2019</time>
+          </p>
+        </header>
+
+        <p>
+          No HTML5, há alguns novos elementos semanticamente ricos que podem transmitir a finalidade
+          do elemento tanto a desenvolvedores como a navegadores.O W3C investigou bilhões de páginas
+          da Web existentes para descobrir as IDs e nomes de classe que os desenvolvedores já estavam
+          usando. Uma vez que eliminaram div1, div2, etc., chegaram a uma lista de elementos descritivos
+          ricos que já estavam sendo usados e os transformaram nos padrões.
+
+        </p>
+        <footer>
+          <p><a href="coments?post=1502"> 41 comentários</a></p>
+        </footer>
+        </article>
+    </section>
+
+    <footer id="pageFooter">
+      <p> &copy; 2019 - ACSG</p>
+      <nav id="menuRodape">
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Termos de uso</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+
+</html>

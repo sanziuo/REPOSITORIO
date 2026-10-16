@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de elementos semânticos com CSS</title>
+<style>
+body {
+  font-family: Verdana,sans-serif;
+  font-size: 0.9em;
+}
+
+header, footer {
+  padding: 10px;
+  color: white;
+  background-color: black;
+}
+
+section {
+  margin: 5px;
+  padding: 10px;
+  background-color: lightgrey;
+}
+
+article {
+  margin: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 5px;
+}
+</style></head>
+<body>
+    <header>
+        <h1>Cursos de programação</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Java</h2>
+            <article>
+                <h3>Curso de JavaServer Faces</h3>
+                <p>Neste curso você aprenderá a desenvolver aplicações com JSF.</p>
+            </article>
+            <article>
+                <h3>Curso de Spring</h3>
+                <p>Neste curso você aprenderá utilizar o framework Spring.</p>
+            </article>
+        </section>
+        <section>
+            <h2>PHP</h2>
+            <article>
+                <h3>Curso básico de PHP</h3>
+                <p>Conheça a linguagem de programação PHP.</p>
+            </article>
+            <article>
+                <h3>Curso de PDO</h3>
+                <p>Aprenda a acessar bancos de dados com PHP Data Objects.</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>MinhaEmpresa.com.br. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

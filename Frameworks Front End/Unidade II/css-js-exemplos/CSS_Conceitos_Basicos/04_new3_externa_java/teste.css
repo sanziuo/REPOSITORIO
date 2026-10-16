@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+.body {
+font-family: "Arial", sans-serif;
+margin-left: 15%;
+margin-right: 15%; }
+
+.titulo1 {
+color: red;
+font-family: "Arial";
+font-size: 25px; }
+
+.texto{
+font-family: "Times";
+font-size: 16px; }
+
+.codigo {
+font-family: monospace;
+font-size: 12px;}
