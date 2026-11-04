@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- habilita os atributos th:* do Thymeleaf -->
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendas Registradas</title>
+    <!-- CSS em static/venda/vendas.css -->
+    <link rel="stylesheet" th:href="@{/venda/vendas.css}">
+</head>
+<body>
+<!-- Menu de navegação -->
+<nav>
+    <a th:href="@{/produtos}">Produtos</a> |
+    <a th:href="@{/vendas}">Vendas</a>
+</nav>
+
+<h1>Vendas Registradas</h1>
+
+<!-- ===== RESUMO (exercício) ===== -->
+<div class="resumo">
+    <div class="card">
+        <span>Vendas concluídas</span>
+        <strong th:text="${totalConcluidas}"></strong>
+    </div>
+    <div class="card">
+        <span>Total faturado</span>
+        <!-- 'POINT' = separador de milhar; 'COMMA' = vírgula decimal → 1.234,50 -->
+        <strong th:text="'R$ ' + ${#numbers.formatDecimal(somaConcluidas, 1, 'POINT', 2, 'COMMA')}"></strong>
+    </div>
+    <div class="card">
+        <span>Pendentes</span>
+        <strong th:text="${totalPendentes}"></strong>
+    </div>
+</div>
+
+<!-- ===== FILTRO POR STATUS ===== -->
+<!-- @{/vendas(status='PENDENTE')} gera /vendas?status=PENDENTE -->
+<div class="filtros">
+    <a th:href="@{/vendas}" th:classappend="${statusAtual == null} ? 'ativo'">Todas</a>
+    <a th:href="@{/vendas(status='PENDENTE')}"
+       th:classappend="${statusAtual != null and statusAtual.name() == 'PENDENTE'} ? 'ativo'">Pendentes</a>
+    <a th:href="@{/vendas(status='EM_PREPARO')}"
+       th:classappend="${statusAtual != null and statusAtual.name() == 'EM_PREPARO'} ? 'ativo'">Em Preparo</a>
+    <a th:href="@{/vendas(status='CONCLUIDA')}"
+       th:classappend="${statusAtual != null and statusAtual.name() == 'CONCLUIDA'} ? 'ativo'">Concluídas</a>
+    <a th:href="@{/vendas(status='CANCELADA')}"
+       th:classappend="${statusAtual != null and statusAtual.name() == 'CANCELADA'} ? 'ativo'">Canceladas</a>
+</div>
+
+<!-- Mensagem quando não há vendas -->
+<p th:if="${#lists.isEmpty(vendas)}">Nenhuma venda encontrada.</p>
+
+<!-- ===== TABELA DE VENDAS ===== -->
+<table th:unless="${#lists.isEmpty(vendas)}">
+    <thead>
+    <tr>
+        <th>Nº Pedido</th>
+        <th>Data/Hora</th>
+        <th>Status</th>
+        <th>Itens do Pedido</th>
+        <th>Total</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Laço EXTERNO: uma linha por venda -->
+    <tr th:each="venda : ${vendas}">
+        <td th:text="${venda.id}"></td>
+
+        <!-- Data formatada (exercício): #temporals para LocalDateTime -->
+        <td th:text="${#temporals.format(venda.dataHora, 'dd/MM/yyyy HH:mm')}"></td>
+
+        <!-- Status com cor: th:classappend escolhe a classe CSS pelo valor do enum -->
+        <td>
+                    <span class="status"
+                          th:text="${venda.status}"
+                          th:classappend="${venda.status.name() == 'CONCLUIDA'} ? 'status-sucesso' :
+                                          (${venda.status.name() == 'CANCELADA'} ? 'status-cancelado' :
+                                          (${venda.status.name() == 'EM_PREPARO'} ? 'status-preparo' : 'status-pendente'))">
+                    </span>
+        </td>
+
+        <!-- Laço INTERNO: itens daquela venda -->
+        <td>
+            <ul>
+                <li th:each="item : ${venda.itens}">
+                    <!-- item.produto.nome: navega VendaProduto → Produto → nome -->
+                    <span th:text="${item.quantidade} + 'x ' + ${item.produto.nome}"></span>
+                    <!-- Subtotal do item (exercício): quantidade × preço unitário -->
+                    <small th:text="'(R$ ' + ${#numbers.formatDecimal(item.quantidade * item.precoUnitario, 1, 'POINT', 2, 'COMMA')} + ')'"></small>
+                </li>
+            </ul>
+        </td>
+
+        <!-- Total formatado com 2 casas -->
+        <td th:text="'R$ ' + ${#numbers.formatDecimal(venda.valorTotal, 1, 'POINT', 2, 'COMMA')}"></td>
+
+        <!-- Link para a tela de detalhes: /vendas/{id} -->
+        <td>
+            <a th:href="@{/vendas/{id}(id=${venda.id})}">Ver detalhes</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

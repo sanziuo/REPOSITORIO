@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- habilita os atributos th:* do Thymeleaf -->
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Pedido</title>
+    <link rel="stylesheet" th:href="@{/venda/vendas.css}">
+</head>
+<body>
+<!-- Menu de navegação -->
+<nav>
+    <a th:href="@{/produtos}">Produtos</a> |
+    <a th:href="@{/vendas}">Vendas</a>
+</nav>
+
+<!-- Título com o número do pedido -->
+<h1 th:text="'Pedido nº ' + ${venda.id}"></h1>
+
+<!-- Data formatada -->
+<p th:text="'Data: ' + ${#temporals.format(venda.dataHora, 'dd/MM/yyyy HH:mm')}"></p>
+
+<!-- Status com cor -->
+<p>
+    Status:
+    <span class="status"
+          th:text="${venda.status}"
+          th:classappend="${venda.status.name() == 'CONCLUIDA'} ? 'status-sucesso' :
+                              (${venda.status.name() == 'CANCELADA'} ? 'status-cancelado' :
+                              (${venda.status.name() == 'EM_PREPARO'} ? 'status-preparo' : 'status-pendente'))">
+        </span>
+</p>
+
+<!-- Tabela de itens -->
+<table>
+    <thead>
+    <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Preço Unitário</th>
+        <th>Subtotal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Um item por linha -->
+    <tr th:each="item : ${venda.itens}">
+        <td th:text="${item.produto.nome}"></td>
+        <td th:text="${item.quantidade}"></td>
+        <td th:text="'R$ ' + ${#numbers.formatDecimal(item.precoUnitario, 1, 'POINT', 2, 'COMMA')}"></td>
+        <!-- Conta feita direto na expressão do Thymeleaf -->
+        <td th:text="'R$ ' + ${#numbers.formatDecimal(item.quantidade * item.precoUnitario, 1, 'POINT', 2, 'COMMA')}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Total da venda -->
+<h3 th:text="'Total: R$ ' + ${#numbers.formatDecimal(venda.valorTotal, 1, 'POINT', 2, 'COMMA')}"></h3>
+
+<!-- Botões para mudar o status: um link para cada valor do enum -->
+<div class="filtros">
+    <span>Alterar status:</span>
+    <a th:each="s : ${todosStatus}"
+       th:href="@{/vendas/{id}/status/{status}(id=${venda.id}, status=${s})}"
+       th:text="${s}"
+       th:classappend="${s == venda.status} ? 'ativo'"></a>
+</div>
+
+<!-- Volta para a listagem -->
+<p><a th:href="@{/vendas}">← Voltar para a lista</a></p>
+</body>
+</html>

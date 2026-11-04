@@ -1,0 +1,122 @@
+/* Página: fonte, margem e cor de fundo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f5f5f5;
+}
+
+/* Menu de navegação */
+nav {
+    margin-bottom: 20px;
+}
+
+/* Tabela ocupando toda a largura */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* Células */
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+/* Cabeçalho da tabela */
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Lista de itens dentro da célula */
+ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+/* Subtotal do item em cinza */
+small {
+    color: #777;
+}
+
+/* ===== Resumo no topo ===== */
+.resumo {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 16px;
+    min-width: 150px;
+}
+
+.card span {
+    display: block;
+    font-size: 13px;
+    color: #666;
+}
+
+.card strong {
+    font-size: 22px;
+}
+
+/* ===== Filtros por status ===== */
+.filtros {
+    margin: 16px 0;
+}
+
+.filtros a {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 6px 12px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Filtro ativo (o que está selecionado) */
+.filtros a.ativo {
+    background-color: #333;
+    color: #fff;
+}
+
+/* ===== Etiqueta de status (exercício) ===== */
+.status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* CONCLUIDA: verde */
+.status-sucesso {
+    background-color: #c8e6c9;
+    color: #1b5e20;
+}
+
+/* CANCELADA: vermelho */
+.status-cancelado {
+    background-color: #ffcdd2;
+    color: #b71c1c;
+}
+
+/* PENDENTE: amarelo */
+.status-pendente {
+    background-color: #fff9c4;
+    color: #8d6e00;
+}
+
+/* EM_PREPARO: azul */
+.status-preparo {
+    background-color: #bbdefb;
+    color: #0d47a1;
+}

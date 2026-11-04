@@ -1,0 +1,19 @@
+# Descreve os containers do projeto (substitui o comando "docker run")
+services:
+  # Serviço do banco de dados
+  mysql:
+    image: mysql:8.0                    # imagem do MySQL versão 8.0
+    container_name: mysql-restaurante   # nome do container
+    environment:                        # variáveis de ambiente (lidas do .env)
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  # senha do administrador (root)
+      MYSQL_DATABASE: ${MYSQL_DATABASE}            # banco criado automaticamente
+      MYSQL_USER: ${MYSQL_USER}                    # usuário da aplicação
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}            # senha do usuário da aplicação
+    ports:
+      - "3307:3306"                     # porta 3307 no PC → 3306 no container (3306 ocupada no Windows)
+    volumes:
+      - mysql_restaurante_data:/var/lib/mysql  # dados guardados fora do container
+
+# Declara o volume (armazenamento persistente)
+volumes:
+  mysql_restaurante_data:

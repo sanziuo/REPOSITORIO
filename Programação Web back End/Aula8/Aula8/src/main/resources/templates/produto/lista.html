@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- xmlns:th: habilita os atributos th:* do Thymeleaf -->
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+    <!-- CSS em static/produto/produtos.css -->
+    <link rel="stylesheet" th:href="@{/produto/produtos.css}">
+</head>
+<body>
+<!-- Menu de navegação entre as telas -->
+<nav>
+    <a th:href="@{/produtos}">Produtos</a> |
+    <a th:href="@{/vendas}">Vendas</a>
+</nav>
+
+<h1>Produtos Cadastrados</h1>
+
+<!-- Link para o formulário de cadastro -->
+<a class="botao" th:href="@{/produtos/novo}">+ Novo Produto</a>
+
+<!-- Aparece só se a lista estiver vazia -->
+<p th:if="${#lists.isEmpty(produtos)}">Nenhum produto cadastrado ainda.</p>
+
+<!-- Aparece só se a lista NÃO estiver vazia -->
+<table th:unless="${#lists.isEmpty(produtos)}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Categoria</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Repete a linha para cada produto -->
+    <tr th:each="produto : ${produtos}">
+        <td th:text="${produto.id}"></td>
+        <td th:text="${produto.nome}"></td>
+        <!-- preço com 2 casas decimais -->
+        <td th:text="${#numbers.formatDecimal(produto.preco, 1, 2, 'COMMA')}"></td>
+        <td th:text="${produto.categoria}"></td>
+        <td th:text="${produto.descricao}"></td>
+        <td>
+            <!-- monta /produtos/editar/{id} -->
+            <a th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a>
+            <!-- monta /produtos/excluir/{id} -->
+            <a th:href="@{/produtos/excluir/{id}(id=${produto.id})}">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

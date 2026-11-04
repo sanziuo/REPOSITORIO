@@ -1,0 +1,62 @@
+/* Página: fonte, margem e cor de fundo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f5f5f5;
+}
+
+/* Tabela ocupando toda a largura, sem bordas duplas */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* Células: espaçamento e linha separadora */
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Cabeçalho da tabela */
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Links de ação */
+td a {
+    margin-right: 10px;
+}
+
+/* Botão "Novo Produto" */
+.botao {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    background-color: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Formulário: campos um embaixo do outro */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 6px;
+}
+
+/* Campos do formulário */
+input, textarea {
+    padding: 6px;
+}
+
+/* Botão Salvar */
+button {
+    margin-top: 10px;
+    padding: 8px;
+    cursor: pointer;
+}

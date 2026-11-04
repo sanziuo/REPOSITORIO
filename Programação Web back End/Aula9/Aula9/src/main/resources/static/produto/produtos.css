@@ -1,0 +1,93 @@
+/* Página: fonte, margem e cor de fundo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f5f5f5;
+}
+
+/* Menu de navegação */
+nav {
+    margin-bottom: 20px;
+}
+
+/* Tabela ocupando toda a largura */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* Células: espaçamento e linha separadora */
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Cabeçalho da tabela */
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Links de ação */
+td a {
+    margin-right: 10px;
+}
+
+/* Botão "Novo Produto" */
+.botao {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    background-color: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Formulário: campos um embaixo do outro */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 6px;
+}
+
+/* Campos do formulário */
+input, textarea {
+    padding: 6px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+/* Botão Salvar */
+button {
+    margin-top: 10px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+/* ===== VALIDAÇÃO (Capítulo 9) ===== */
+
+/* Mensagem de erro embaixo do campo */
+.erro {
+    color: #c62828;
+    font-size: 13px;
+}
+
+/* Borda vermelha no campo com erro (th:errorclass) */
+.campo-erro {
+    border: 2px solid #c62828;
+    background-color: #fff5f5;
+}
+
+/* Aviso geral no topo do formulário */
+.alerta {
+    max-width: 400px;
+    padding: 10px;
+    background-color: #ffebee;
+    border: 1px solid #c62828;
+    border-radius: 4px;
+    color: #c62828;
+}
