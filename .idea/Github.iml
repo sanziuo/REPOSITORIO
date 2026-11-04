@@ -2,7 +2,12 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Programação Web back End/Aula 1/Gradle - Groovy/demo/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/Programação Web back End/Aula1/target" />
+      <excludeFolder url="file://$MODULE_DIR$/Programação Web back End/Aula1_1/target" />
+      <excludeFolder url="file://$MODULE_DIR$/Programação Web back End/Aula2/Aula2_SemSpring/target" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
